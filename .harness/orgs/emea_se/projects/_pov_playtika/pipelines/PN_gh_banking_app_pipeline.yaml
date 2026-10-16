@@ -1,6 +1,6 @@
 pipeline:
-  id: PN-gh_banking_app_pipeline
-  name: PN-gh_banking_app_pipeline
+  id: PN_gh_banking_app_pipeline
+  name: PN-gh_banking-app-pipeline
   description: Builds and tests the banking-app backend and frontend, pushes both
     images, and deploys to dev (blue green) and prod (canary).
   tags:
@@ -11,7 +11,7 @@ pipeline:
     repo: pgnn/hz-pn-banking-app
     ref:
       type: branch
-      name: <+input>
+      name: main
   stages:
     - id: Java_Maven_Build_and_Test
       name: Java Maven Build and Test
@@ -156,13 +156,17 @@ pipeline:
       rollback:
         - group:
             steps:
-              - if: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME != ''}}
-                name: Helm Canary Delete Rollback
-                id: helmCanaryDeleteStepRollback
-                template:
-                  uses: helmCanaryDeleteStep
-                  with:
-                    release: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME}}
+              - id: helmCanaryDeleteStepRollbackGroup
+                name: Helm Canary Delete Rollback Group
+                if: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME != ''}}
+                group:
+                  steps:
+                    - name: Helm Canary Delete Rollback
+                      id: helmCanaryDeleteStepRollback
+                      template:
+                        uses: helmCanaryDeleteStep
+                        with:
+                          release: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME}}
               - name: Helm Rollback
                 id: helmRollbackStep
                 template:
@@ -207,13 +211,17 @@ pipeline:
       rollback:
         - group:
             steps:
-              - if: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME != ''}}
-                name: Helm Canary Delete Rollback
-                id: helmCanaryDeleteStepRollback
-                template:
-                  uses: helmCanaryDeleteStep
-                  with:
-                    release: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME}}
+              - id: helmCanaryDeleteStepRollbackGroup
+                name: Helm Canary Delete Rollback Group
+                if: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME != ''}}
+                group:
+                  steps:
+                    - name: Helm Canary Delete Rollback
+                      id: helmCanaryDeleteStepRollback
+                      template:
+                        uses: helmCanaryDeleteStep
+                        with:
+                          release: ${{rollback.data.PLUGIN_CANARY_RELEASE_NAME}}
               - name: Helm Rollback
                 id: helmRollbackStep
                 template:
