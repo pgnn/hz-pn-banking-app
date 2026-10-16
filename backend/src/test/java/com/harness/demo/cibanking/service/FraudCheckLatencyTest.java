@@ -63,6 +63,7 @@ class FraudCheckLatencyTest {
     @Test
     void check_verySlowDownstream_stillCompletes() {
         server.enqueue(new MockResponse()
+                .setHeader("Content-Type", "application/json")
                 .setBody("{\"decision\":\"REVIEW\",\"riskScore\":55}")
                 .setBodyDelay(800, TimeUnit.MILLISECONDS));
 
