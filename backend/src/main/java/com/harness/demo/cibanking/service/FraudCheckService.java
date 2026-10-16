@@ -34,7 +34,7 @@ public class FraudCheckService {
                     .body(Map.class);
 
             result.put("source", "downstream");
-            result.put("integration", "ok");
+            result.put("integration", downstream != null ? "ok" : "empty");
             result.put("checkedAt", java.time.Instant.now().toString());
             result.put("result", downstream);
         } catch (Exception e) {
