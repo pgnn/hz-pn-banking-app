@@ -7,7 +7,7 @@ pipeline:
     ai_generated: ""
   clone:
     enabled: true
-    connector: connector_Github_b6d0
+    connector: connector_Github_PN
     repo: pgnn/hz-pn-banking-app
     ref:
       type: branch
