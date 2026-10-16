@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Web-layer tests for GET /api/accounts/{id}/statements. Distinct context
  * property = its own Spring context (heavier; skippable by TI on unrelated PRs).
  */
-@SpringBootTest(properties = {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
         "cibanking.warmup.enabled=false",
         "cibanking.test.context=statements"
 })

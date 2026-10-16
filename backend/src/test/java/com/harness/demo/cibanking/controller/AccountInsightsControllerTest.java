@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * property so this class boots its own Spring context - heavier, but isolated
  * from other suites, which is what Test Intelligence skips on unaffected PRs.
  */
-@SpringBootTest(properties = {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
         "cibanking.warmup.enabled=false",
         "cibanking.test.context=insights"
 })
