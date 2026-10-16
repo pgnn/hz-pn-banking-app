@@ -35,6 +35,7 @@ public class FraudCheckService {
 
             result.put("source", "downstream");
             result.put("integration", "ok");
+            result.put("checkedAt", java.time.Instant.now().toString());
             result.put("result", downstream);
         } catch (Exception e) {
             result.put("source", "downstream");
