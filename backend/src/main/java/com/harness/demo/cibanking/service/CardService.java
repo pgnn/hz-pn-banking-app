@@ -31,6 +31,8 @@ public class CardService {
                     new BigDecimal("3420.00"), new BigDecimal("25000.00"))
     ));
 
+    // Demo note: freeze/unfreeze toggles only mutate the status field; the PAN,
+    // limit and network are untouched so a frozen card can be reactivated safely.
     public List<Card> getCards() {
         return cards;
     }
