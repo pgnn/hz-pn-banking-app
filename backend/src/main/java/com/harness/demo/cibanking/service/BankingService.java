@@ -188,6 +188,7 @@ public class BankingService {
     public List<String> getCategories() {
         return transactions.stream()
                 .map(Transaction::getCategory)
+                .filter(c -> c != null && !c.isBlank())
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
