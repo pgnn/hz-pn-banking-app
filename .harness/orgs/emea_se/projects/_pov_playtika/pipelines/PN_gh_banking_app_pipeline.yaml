@@ -176,6 +176,7 @@ pipeline:
       on-failure:
         errors: all
         action: stage-rollback
+      if: <+OnStageFailure>
     - name: Deploy t prod
       id: Deploy_t_prod
       service:
@@ -231,3 +232,4 @@ pipeline:
       on-failure:
         errors: all
         action: stage-rollback
+      if: <+OnStageFailure>
