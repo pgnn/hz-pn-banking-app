@@ -627,6 +627,9 @@ async function init() {
     }
 }
 
+// Frontend-only change: no backend code touched, so Test Intelligence
+// should skip the backend test classes (including the heavier ones) and
+// report their recorded runtime as time saved.
 document.addEventListener("DOMContentLoaded", init);
 
 // Export for unit tests when running under Node/Jest. No effect in the browser
