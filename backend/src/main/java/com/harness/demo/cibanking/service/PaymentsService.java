@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class PaymentsService {
+    // TI PR-demo: provoke savings metric on a pull-request run.
 
     private final BankingService bankingService;
 
