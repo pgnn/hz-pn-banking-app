@@ -8,7 +8,7 @@ pipeline:
   clone:
     enabled: true
     connector: connector_Github_b6d0
-    repo: HamzaZizi/banking-app
+    repo: pgnn/hz-pn-banking-app
     ref:
       type: branch
       name: main
