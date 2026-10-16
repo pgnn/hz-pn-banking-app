@@ -11,7 +11,7 @@ pipeline:
     repo: pgnn/hz-pn-banking-app
     ref:
       type: branch
-      name: main
+      name: <+input>
   stages:
     - id: Java_Maven_Build_and_Test
       name: Java Maven Build and Test
