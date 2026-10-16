@@ -51,6 +51,7 @@ public class CardService {
      * Toggle a card between ACTIVE and FROZEN. Returns the updated card,
      * or null if the card does not exist.
      */
+    // TI demo: baseline profiled; card-only changes should skip ~110 tests.
     public Card toggleFreeze(String id) {
         Card card = getCard(id);
         if (card == null) {
