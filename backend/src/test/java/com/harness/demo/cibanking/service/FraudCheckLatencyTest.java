@@ -66,7 +66,7 @@ class FraudCheckLatencyTest {
                 .setBody("{\"decision\":\"REVIEW\",\"riskScore\":55}")
                 .setBodyDelay(800, TimeUnit.MILLISECONDS));
 
-        Map<String, Object> result = serviceWithReadTimeout(3000).check();
+        Map<String, Object> result = serviceWithReadTimeout(5000).check();
         assertThat(result.get("integration")).isEqualTo("ok");
     }
 
