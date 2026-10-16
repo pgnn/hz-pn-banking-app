@@ -54,7 +54,9 @@ public class NotificationService {
         if (n == null) {
             return null;
         }
-        n.setRead(true);
+        if (!n.isRead()) {
+            n.setRead(true);
+        }
         return n;
     }
 }
