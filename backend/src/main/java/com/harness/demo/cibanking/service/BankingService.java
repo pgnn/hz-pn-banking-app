@@ -126,6 +126,8 @@ public class BankingService {
     // Monotonic counter for runtime-posted transaction ids (transfers).
     private final AtomicLong txnSeq = new AtomicLong(9000);
 
+    // Core service: nearly every backend test exercises this class, so changes
+    // here cause Test Intelligence to select (run) the majority of the suite.
     public List<Account> getAccounts() {
         return accounts;
     }
