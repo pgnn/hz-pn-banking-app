@@ -54,7 +54,8 @@ public class CardService {
         if (card == null) {
             return null;
         }
-        card.setStatus("FROZEN".equalsIgnoreCase(card.getStatus()) ? "ACTIVE" : "FROZEN");
+        String next = "FROZEN".equalsIgnoreCase(card.getStatus()) ? "ACTIVE" : "FROZEN";
+        card.setStatus(next);
         return card;
     }
 }
