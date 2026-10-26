@@ -60,6 +60,11 @@ class CardServiceTest {
     }
 
     @Test
+    void getCard_returnsNullForNullId() {
+        assertThat(service.getCard(null)).isNull();
+    }
+
+    @Test
     void toggleFreeze_freezesAnActiveCard() {
         Card card = service.toggleFreeze("card-001");
         assertThat(card).isNotNull();

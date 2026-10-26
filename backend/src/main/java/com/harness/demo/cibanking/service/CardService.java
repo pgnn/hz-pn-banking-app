@@ -47,6 +47,9 @@ public class CardService {
     // TI demo: changes here map only to card-related tests; everything else
     // (including the heavyweight context/boot classes) is skipped by TI.
     public Card getCard(String id) {
+        if (id == null) {
+            return null;
+        }
         return cards.stream().filter(c -> c.getId().equals(id)).findFirst().orElse(null);
     }
 
