@@ -59,6 +59,9 @@ public class CardService {
      */
     // TI demo: baseline profiled; card-only changes should skip ~110 tests.
     public Card toggleFreeze(String id) {
+        if (id == null) {
+            return null;
+        }
         Card card = getCard(id);
         if (card == null) {
             return null;

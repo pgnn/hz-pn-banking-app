@@ -89,4 +89,9 @@ class CardServiceTest {
     void toggleFreeze_returnsNullForUnknownCard() {
         assertThat(service.toggleFreeze("nope")).isNull();
     }
+
+    @Test
+    void toggleFreeze_returnsNullForNullId() {
+        assertThat(service.toggleFreeze(null)).isNull();
+    }
 }
