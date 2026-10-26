@@ -36,6 +36,9 @@ public class CardService {
     }
 
     public List<Card> getCardsForAccount(String accountId) {
+        if (accountId == null) {
+            return List.of();
+        }
         return cards.stream()
                 .filter(c -> c.getAccountId().equals(accountId))
                 .collect(Collectors.toList());
