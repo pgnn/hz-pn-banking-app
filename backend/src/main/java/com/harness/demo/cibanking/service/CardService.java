@@ -36,7 +36,7 @@ public class CardService {
     }
 
     public List<Card> getCardsForAccount(String accountId) {
-        if (accountId == null) {
+        if (accountId == null || accountId.isBlank()) {
             return List.of();
         }
         return cards.stream()

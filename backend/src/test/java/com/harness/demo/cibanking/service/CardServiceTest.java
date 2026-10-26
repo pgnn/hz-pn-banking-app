@@ -47,6 +47,11 @@ class CardServiceTest {
     }
 
     @Test
+    void getCardsForAccount_returnsEmptyForBlankAccount() {
+        assertThat(service.getCardsForAccount("   ")).isEmpty();
+    }
+
+    @Test
     void getCard_returnsMatchingCard() {
         Card card = service.getCard("card-003");
         assertThat(card).isNotNull();
